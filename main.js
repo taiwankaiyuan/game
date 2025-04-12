@@ -2,7 +2,7 @@
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./modules/constants.js";
 import { loadAssets } from "./modules/assets.js";
 import { initGame, handleSpacePress } from "./modules/game.js";
-import { setupInputListener } from "./modules/input.js";
+import { setupInputListener, setupTouchListener, removeInputListener, removeTouchListener } from "./modules/input.js";
 import { drawLoadingScreen, drawErrorScreen, setupFullscreenButton } from "./modules/ui.js"; // Import UI functions and fullscreen setup
 
 // --- Get Canvas and Context ---
@@ -44,6 +44,8 @@ async function initializeApp() {
 
         // Setup input listener, passing the game's handler function
         setupInputListener(handleSpacePress);
+        // Setup touch listener, passing the game's handler function
+        setupTouchListener(handleSpacePress);
 
         // Setup the fullscreen button
         setupFullscreenButton();
