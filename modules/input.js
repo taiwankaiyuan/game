@@ -19,6 +19,12 @@ function handleKeyDown(event) {
 
 // 新增：處理觸控開始事件的函式
 function handleTouchStart(event) {
+	// 新增：檢查觸控目標是否為全螢幕按鈕
+	if (event.target && event.target.id === 'fullscreen-btn') {
+		// 如果是全螢幕按鈕，則不觸發遊戲開始邏輯，讓按鈕的點擊事件正常處理
+		return;
+	}
+
 	// 簡單地將任何觸控視為輸入，類似按下空白鍵
 	event.preventDefault(); // 防止觸控可能引起的預設行為 (如縮放、捲動)
 
